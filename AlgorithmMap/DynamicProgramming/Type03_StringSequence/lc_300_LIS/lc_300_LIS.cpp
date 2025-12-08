@@ -39,7 +39,7 @@ int Solution::lengthOfLIS(std::vector<int>& nums)
 // 二分 + 贪心 （优于动态规划）.
 int Solution::lengthOfLISPlus(std::vector<int>& nums)
 {
-	// 可以把 tails 理解为：“各长度对应的最优结尾值”，不是真实的子序列，也不具有子序列所要求的顺序约束.
+	// 可以把 tails 理解为：“各长度对应的最优结尾值（num）”，不是真实的子序列，也不具有子序列所要求的顺序约束.
 	std::vector<int> tails;
 	for (int num : nums) {
 		auto it = std::lower_bound(tails.begin(), tails.end(), num);

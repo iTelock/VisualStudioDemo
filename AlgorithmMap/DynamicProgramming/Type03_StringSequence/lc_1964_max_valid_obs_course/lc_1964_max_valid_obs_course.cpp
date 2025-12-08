@@ -20,5 +20,21 @@ int main()
 
 std::vector<int> Solution::longestObstacleCourseAtEachPosition(std::vector<int>& obstacles)
 {
+	int n = obstacles.size();
+	std::vector<int> tails;
+	std::vector<int> ans(n);
 
+	for (int i = 0; i < n; i++) {
+		auto it = std::upper_bound(tails.begin(), tails.end(), obstacles[i]);
+		ans[i] = static_cast<int>(it - tails.begin()) + 1;	// 仅需要计算以 i 结尾.
+		// 接下来更新 tails 辅助计算后续ans[i].
+		if (it == tails.end()) {
+			tails.push_back(obstacles[i]);	// 没有比 obstacles[i] 更大的，可以扩展长度
+		}
+		else {
+			*it = obstacles[i];	// 有更大的，替换为更小的 (贪心).
+		}
+	}
+
+	return ans;
 }

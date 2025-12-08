@@ -1,4 +1,4 @@
-﻿// lc_1964_max_valid_obs_course.h: 标准系统包含文件的包含文件
+﻿// lc_2466_count_good_str.h: 标准系统包含文件的包含文件
 // 或项目特定的包含文件。
 
 #pragma once
@@ -9,7 +9,7 @@
 
 class Solution {
 public:
-    std::vector<int> longestObstacleCourseAtEachPosition(std::vector<int>& obstacles);
+    int countGoodStrings(int low, int high, int zero, int one);
 };
 
 // TODO: 在此处引用程序需要的其他标头。
